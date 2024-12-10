@@ -14,6 +14,7 @@
           <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
           <div  *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
             <p class="error" *ngIf="loginForm.get('password')?.errors?.['required']"> Password is Required</p>
+            <p class="error" *ngIf="loginForm.get('password')?.errors?.['pattern']"> Enter valid Password</p>
             <p class="error" *ngIf="loginForm.get('password')?.errors?.['minlength']"> Enter correct Password</p>
           </div>
         </div>
