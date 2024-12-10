@@ -1,19 +1,22 @@
 <div class="parent">
-    <form>
+    <form [formGroup]="loginForm"> 
         <h1>IMS Login Page</h1>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="email">
+          <div  *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid">
+            <p class="error" *ngIf="loginForm.get('email')?.errors?.['required']"> Email is Required</p>
+            <p class="error" *ngIf="loginForm.get('email')?.errors?.['email']"> Enter correct email Addres</p>
+          </div>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+          <div  *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid">
+            <p class="error" *ngIf="loginForm.get('password')?.errors?.['required']"> Password is Required</p>
+            <p class="error" *ngIf="loginForm.get('password')?.errors?.['minlength']"> Enter correct Password</p>
+          </div>
         </div>
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
     </form>
 </div>
