@@ -21,8 +21,8 @@ submit(){
   this._loginServices.getLogin(this.loginForm.value).subscribe(
     (data:any)=>{
       alert("Login Success .....")
-      this._router.navigateByUrl("/dashboard")
       sessionStorage.setItem('token',data.token)
+      this._router.navigateByUrl("/dashboard")
     },
     (err:any)=>{alert("Login Failed !!!")}
   )
