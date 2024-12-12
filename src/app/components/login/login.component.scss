@@ -1,0 +1,14 @@
+.parent{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form{
+        width: 350px;
+        height: 200px;
+        .error{
+            color: red;
+        }
+    }
+}
