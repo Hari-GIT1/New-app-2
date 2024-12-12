@@ -22,6 +22,7 @@ submit(){
     (data:any)=>{
       alert("Login Success .....")
       this._router.navigateByUrl("/dashboard")
+      sessionStorage.setItem('token',data.token)
     },
     (err:any)=>{alert("Login Failed !!!")}
   )
