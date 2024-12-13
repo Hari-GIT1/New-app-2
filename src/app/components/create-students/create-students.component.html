@@ -1,1 +1,24 @@
-<p>create-students works!</p>
+<div class="parent">
+    <div class="child">
+        <form  [formGroup]="studentForm">
+            <div>
+                <h1>Create Students</h1>
+                <label for="">Name :</label>
+                <input type="text" formControlName="name"><br>
+    
+                <label for="">Gender :</label>
+                <input type="text" formControlName="gender"><br>
+    
+                <label for="">Mobile :</label>
+                <input type="number" formControlName="mobile"><br>
+    
+                <label for="">Email :</label>
+                <input type="email" formControlName="email"><br>
+    
+                <label for="">Batch :</label>
+                <input type="date" formControlName="batch"><br>
+            </div>
+            <button class="btn btn-info" (click)="submit()">Submit</button>
+          </form>
+    </div>
+</div>
