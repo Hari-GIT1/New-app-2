@@ -8,13 +8,17 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateStudentsComponent } from './components/create-students/create-students.component';
+import { StudentDetailsComponent } from './components/student-details/student-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    CreateStudentsComponent,
+    StudentDetailsComponent
   ],
   imports: [
     BrowserModule,
