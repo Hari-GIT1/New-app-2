@@ -27,6 +27,7 @@ import { HomeComponent } from './components/dashboard/home/home.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
