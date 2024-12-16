@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { StudentsService } from 'src/app/services/students.service';
 
 @Component({
   selector: 'app-create-students',
@@ -35,7 +36,7 @@ export class CreateStudentsComponent {
 
   })
 
-  constructor(){
+  constructor(private _studentsService:StudentsService){
     this.studentForm.get('sourceType')?.valueChanges.subscribe(
       (data:any)=>{
         if(data=='Direct'){
@@ -70,6 +71,13 @@ export class CreateStudentsComponent {
   }
 
   submit(){
-    console.log(this.studentForm.value)
+    this._studentsService.createStudent(this.studentForm.value).subscribe(
+      (data:any)=>{
+        alert("Student Details Added Succefully")
+      },
+      (err:any)=>{
+        alert("Student Details Additon Failed")
+      }
+    )
   }
 }
