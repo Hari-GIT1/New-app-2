@@ -5,3 +5,16 @@ label{
 p{
     color: red;
 }
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    line-height: 30px;
+}
+h1{
+    text-align: center;
+}
+input{
+    margin-bottom: 10px;
+}

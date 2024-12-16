@@ -1,7 +1,7 @@
 <div class="parent">
     <div class="child">
+        <h1>Create Students</h1>
         <form [formGroup]="studentForm">
-            <h1>Create Students</h1>
             <div>
                 <h3>Personal Details</h3>
                 <label for="">Name :</label>
@@ -34,7 +34,6 @@
                     <p *ngIf="studentForm.get('batch')?.errors?.['required']">Required Mandatory Fields</p>
                 </div>
             </div>
-
             <div formGroupName="address">
                 <h3>Address</h3>
                 <label for="">City :</label>
@@ -67,31 +66,33 @@
                     <p *ngIf="studentForm.get('address')?.get('pincode')?.errors?.['required']">Required Mandatory Fields</p>
                 </div>
             </div>
-            <h3>Education</h3>
-            <button class="btn btn-info" (click)="addEdu()">Add</button>
-            <div formArrayName="education">
-                <div *ngFor="let edu of educationFormArray.controls; let i=index">
-                    <div formGroupName="{{i}}">
-                        <h4>Eduation Details</h4>
-                        <label for="">Qualification :</label>
-                        <input type="text" formControlName="qualification"><br>
-                        <div *ngIf="studentForm?.get('qualification')?.touched && studentForm?.get('qualification')?.invalid">
-                            <p *ngIf="studentForm?.get('qualification')?.errors?.['required']">Required Mandatory Fields</p>
+            <div>
+                <h3>Education</h3>
+                <button class="btn btn-info" (click)="addEdu()">Add</button>
+                <div formArrayName="education">
+                    <div *ngFor="let edu of educationFormArray.controls; let i=index">
+                        <div formGroupName="{{i}}">
+                            <h4>Eduation Details</h4>
+                            <label for="">Qualification :</label>
+                            <input type="text" formControlName="qualification"><br>
+                            <div *ngIf="studentForm?.get('qualification')?.touched && studentForm?.get('qualification')?.invalid">
+                                <p *ngIf="studentForm?.get('qualification')?.errors?.['required']">Required Mandatory Fields</p>
+                            </div>
+    
+                            <label for="">Year :</label>
+                            <input type="year" formControlName="year"><br>
+                            <div *ngIf="studentForm?.get('year')?.touched && studentForm?.get('year')?.invalid">
+                                <p *ngIf="studentForm?.get('year')?.errors?.['required']">Required Mandatory Fields</p>
+                            </div>
+    
+                            <label for="">Percentage :</label>
+                            <input type="number" formControlName="percentage"><br>
+                            <div *ngIf="studentForm?.get('percentage')?.touched && studentForm?.get('percentage')?.invalid">
+                                <p *ngIf="studentForm?.get('percentage')?.errors?.['required']">Required Mandatory Fields</p>
+                            </div>
+    
+                            <button class="btn  btn-danger" (click)="eduDel(i)">Delete</button>
                         </div>
-
-                        <label for="">Year :</label>
-                        <input type="year" formControlName="year"><br>
-                        <div *ngIf="studentForm?.get('year')?.touched && studentForm?.get('year')?.invalid">
-                            <p *ngIf="studentForm?.get('year')?.errors?.['required']">Required Mandatory Fields</p>
-                        </div>
-
-                        <label for="">Percentage :</label>
-                        <input type="number" formControlName="percentage"><br>
-                        <div *ngIf="studentForm?.get('percentage')?.touched && studentForm?.get('percentage')?.invalid">
-                            <p *ngIf="studentForm?.get('percentage')?.errors?.['required']">Required Mandatory Fields</p>
-                        </div>
-
-                        <button class="btn  btn-danger" (click)="eduDel(i)">Delete</button>
                     </div>
                 </div>
             </div>
@@ -152,9 +153,10 @@
                     </div><br>
                 </div>
             </div>
-            <button class="btn btn-info" (click)="submit()">Submit</button>
         </form>
+        <button class="btn btn-info" id="submit" (click)="submit()">Submit</button>
     </div>
 </div>
+
 
 
