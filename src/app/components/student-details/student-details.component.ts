@@ -13,6 +13,7 @@ export class StudentDetailsComponent {
   page:number=0;
   order:string = "";
   value:string = "";
+  term:string ="";
 
   constructor(private _studentsServices:StudentsService){
 
@@ -38,6 +39,12 @@ export class StudentDetailsComponent {
         this.students =data
       }
     )
-  
 }
+  filtering(){
+    this._studentsServices.getFilteredStudents(this.term).subscribe(
+      (data:any)=>{
+        this.students =data
+      }
+    )
+  }
 }

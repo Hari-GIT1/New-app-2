@@ -23,5 +23,8 @@ export class StudentsService {
   getSortedStudents(order:string,value:string):Observable<any>{
     return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students?sortBy="+value+"&order"+order)
   }
+  getFilteredStudents(term:string):Observable<any>{
+    return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students?filter="+term)
+  }
 
 }
