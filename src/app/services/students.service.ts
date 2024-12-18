@@ -11,5 +11,8 @@ export class StudentsService {
   createStudent(data:any){
     return this._httpClient.post("https://62b9299dff109cd1dc8ca34f.mockapi.io/students",data)
   }
+  getStudents(){
+    return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students")
+  }
 
 }

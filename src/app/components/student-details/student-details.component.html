@@ -1,1 +1,29 @@
-<p>student-details works!</p>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>Batch</th>
+            <th>Address</th>
+            <th>Company Name</th>
+            <th>Package</th>
+            <th>Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{student.name}}</td>
+            <td>{{student.gender}}</td>
+            <td>{{student.mobile}}</td>
+            <td>{{student.batch}}</td>
+            <td>{{student.address?.district}}</td>
+            <td>{{student.company?.name}}</td>
+            <td>{{student.company?.package}}</td>
+            <td>
+                <Button class="btn btn-info">View</Button>
+                <button class="btn btn-warning">Edit</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
