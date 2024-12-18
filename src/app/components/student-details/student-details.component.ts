@@ -9,6 +9,10 @@ import { StudentsService } from 'src/app/services/students.service';
 export class StudentDetailsComponent {
 
   students:any = [];
+  limit:number=0;
+  page:number=0;
+  order:string = "";
+  value:string = "";
 
   constructor(private _studentsServices:StudentsService){
 
@@ -20,9 +24,15 @@ export class StudentDetailsComponent {
         alert("INTERNAL SERVER ERROR")
       }
     )
-
   }
-
+  pagination(){
+    this._studentsServices.getPagedStudents(this.limit,this.page).subscribe(
+      (data:any)=>{
+        this.students =data
+      }
+    )
+  }
+  sort(){}
   
   
 

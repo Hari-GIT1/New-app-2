@@ -1,29 +1,72 @@
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Phone</th>
-            <th>Batch</th>
-            <th>Address</th>
-            <th>Company Name</th>
-            <th>Package</th>
-            <th>Actions </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let student of students">
-            <td>{{student.name}}</td>
-            <td>{{student.gender}}</td>
-            <td>{{student.mobile}}</td>
-            <td>{{student.batch}}</td>
-            <td>{{student.address?.district}}</td>
-            <td>{{student.company?.name}}</td>
-            <td>{{student.company?.package}}</td>
-            <td>
-                <Button class="btn btn-info">View</Button>
-                <button class="btn btn-warning">Edit</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div class="parent">
+    <div class="top">
+        <div class="pagination">
+            <h4>Pagination :</h4>
+            <label for="">Limit :</label>
+            <select name="" id="" [(ngModel)]="limit">
+                <option value=""></option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+            </select>
+            <label for="">Page :</label>
+            <select name="" id="" [(ngModel)]="page">
+                <option value=""></option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <button class="btn btn-info" (click)="pagination()">Search</button>
+        </div>
+        <div class="sorting">
+            <h4>Sorting :</h4>
+            <label for="">Order :</label>
+            <select name="" id="" [(ngModel)]="order">
+                <option value=""></option>
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+            <label for="">Value :</label>
+            <select name="" id="" [(ngModel)]="value">
+                <option value=""></option>
+                <option value="package">Package</option>
+                <option value="name">name</option>
+                <option value="batch">Batch</option>
+            </select>
+            <button class="btn btn-info" (click)="sort()">Sort</button>
+        </div>
+    </div>
+    <div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Batch</th>
+                    <th>Address</th>
+                    <th>Company Name</th>
+                    <th>Package</th>
+                    <th>Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students">
+                    <td>{{student.name}}</td>
+                    <td>{{student.gender}}</td>
+                    <td>{{student.mobile}}</td>
+                    <td>{{student.batch}}</td>
+                    <td>{{student.address?.district}}</td>
+                    <td>{{student.company?.name}}</td>
+                    <td>{{student.company?.package}}</td>
+                    <td>
+                        <Button class="btn btn-info">View</Button>
+                        <button class="btn btn-warning">Edit</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
