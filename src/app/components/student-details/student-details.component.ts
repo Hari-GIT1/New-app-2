@@ -47,4 +47,12 @@ export class StudentDetailsComponent {
       }
     )
   }
+  Delete(id:string){
+    this._studentsServices.deleteStudents(id).subscribe(
+      (data:any)=>{
+        alert("Deleted Successfully")
+        location.reload();
+      }
+    )
+  }
 }

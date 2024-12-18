@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateStudentsComponent } from './components/create-students/create-students.component';
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { HomeComponent } from './components/dashboard/home/home.component';
+import { DetailsPageComponent } from './components/details-page/details-page.component';
+import { PercentagePipe } from './pipes/percentage.pipe';
+import { PackagePipe } from './pipes/package.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { HomeComponent } from './components/dashboard/home/home.component';
     PagenotfoundComponent,
     CreateStudentsComponent,
     StudentDetailsComponent,
-    HomeComponent
+    HomeComponent,
+    DetailsPageComponent,
+    PercentagePipe,
+    PackagePipe
   ],
   imports: [
     BrowserModule,

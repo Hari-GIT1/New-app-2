@@ -17,6 +17,10 @@ export class StudentsService {
   getStudents():Observable<any>{
     return this._httpClient.get(this.baseUrl)
   }
+
+  getStudent(id:number):Observable<any>{
+    return this._httpClient.get(this.baseUrl+"/"+id)
+  }
   getPagedStudents(limit:number,page:number):Observable<any>{
     return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students?limit="+limit+"&page="+page)
   }
@@ -25,6 +29,13 @@ export class StudentsService {
   }
   getFilteredStudents(term:string):Observable<any>{
     return this._httpClient.get("https://62b9299dff109cd1dc8ca34f.mockapi.io/students?filter="+term)
+  }
+  deleteStudents(id:string):Observable<any>{
+    return this._httpClient.delete(this.baseUrl+"/"+id)
+  }
+
+  updateStudent(digit:string,data:any):Observable<any>{
+    return this._httpClient.put("https://62b9299dff109cd1dc8ca34f.mockapi.io/students/"+digit,data)
   }
 
 }

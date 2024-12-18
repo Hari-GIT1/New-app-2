@@ -1,0 +1,26 @@
+.top{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;  
+}
+.pagination{
+    select{
+        height: 20px;
+    }
+    button{
+        height: 40px;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sorting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filtering{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

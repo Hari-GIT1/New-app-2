@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { StudentsService } from 'src/app/services/students.service';
 
 @Component({
@@ -8,6 +9,8 @@ import { StudentsService } from 'src/app/services/students.service';
   styleUrls: ['./create-students.component.scss']
 })
 export class CreateStudentsComponent {
+
+  digit:string ="";
 
   studentForm:FormGroup = new FormGroup({
     name:new FormControl('',[Validators.required]),
@@ -36,7 +39,7 @@ export class CreateStudentsComponent {
 
   })
 
-  constructor(private _studentsService:StudentsService){
+  constructor(private _studentsService:StudentsService, private _activatedRoute:ActivatedRoute){
     this.studentForm.get('sourceType')?.valueChanges.subscribe(
       (data:any)=>{
         if(data=='Direct'){
@@ -49,7 +52,17 @@ export class CreateStudentsComponent {
         }
       }
     )
-
+    _activatedRoute.params.subscribe(
+      (data:any)=>{
+        this.digit=data.id;
+        console.log(data)
+        _studentsService.getStudent(data.id).subscribe(
+          (data:any)=>{
+            this.studentForm.patchValue(data);
+          }
+        )
+      }
+    )
 
   }
 
@@ -71,14 +84,29 @@ export class CreateStudentsComponent {
   }
 
   submit(){
-    console.log(this.studentForm.value)
-    this._studentsService.createStudent(this.studentForm.value).subscribe(
-      (data:any)=>{
-        alert("Student Details Added Succefully")
-      },
-      (err:any)=>{
-        alert("Student Details Additon Failed")
-      }
-    )
+
+    if(this.digit){
+      this._studentsService.updateStudent(this.digit,this.studentForm.value).subscribe(
+        (data:any)=>{
+          alert("updated successfully");
+        },
+        (err:any)=>{
+          alert("Error in updation")
+        }
+      )
+    }
+    else{
+      this._studentsService.createStudent(this.studentForm.value).subscribe(
+        (data:any)=>{
+          alert("Student Details Added Succefully")
+        },
+        (err:any)=>{
+          alert("Student Details Additon Failed")
+        }
+      )
+    }
+
   }
+
+
 }

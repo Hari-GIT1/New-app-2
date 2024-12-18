@@ -1,7 +1,7 @@
 <div class="parent">
     <div class="top">
         <div class="pagination">
-            <h4>Pagination :</h4>
+            <h3>Pagination :</h3>
             <label for="">Limit :</label>
             <select name="" id="" [(ngModel)]="limit">
                 <option value=""></option>
@@ -64,10 +64,10 @@
                     <td>{{student.batch}}</td>
                     <td>{{student.address?.district}}</td>
                     <td>{{student.company?.name}}</td>
-                    <td>{{student.company?.package}}</td>
+                    <td>{{student.company?.package | package}}</td>
                     <td>
-                        <Button class="btn btn-info">View</Button>
-                        <button class="btn btn-warning">Edit</button>
+                        <Button routerLink="/dashboard/details-page/{{student.id}}" class="btn btn-info">View</Button>
+                        <button class="btn btn-danger" (click)="Delete(student.id)">Delete</button>
                     </td>
                 </tr>
             </tbody>

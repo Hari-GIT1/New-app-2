@@ -1,0 +1,38 @@
+<div class="card" style="width: 18rem;">
+    <img src="{{students.avatar}}" class="card-img-top">
+    <div class="card-body">
+      <h5 class="card-title">{{students.name}}</h5>
+      <p class="card-text">Gender :{{students.gender}}</p>
+      <p class="card-text">Mobile :{{students.mobile}}</p>
+      <p class="card-text">Email :{{students.email}}</p>
+      <p class="card-text">Batch :{{students.batch}}</p>
+      <p class="card-text">Address :{{students.address?.city}},{{students.address?.state}},{{students.address?.pincode}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <h5>Education</h5>
+        <div *ngFor="let education of students.education">
+            <p class="card-text">Qualification :{{education.qualification}},{{education.year}}</p>
+            <h6>Percentage :</h6>
+            <p class="card-text" [ngStyle]="{color:education.percentage >60 ?'green' : 'red'}">{{education.percentage | percentage}}</p>
+        </div>
+      </li>
+      <li class="list-group-item">
+        <h5>Company Details</h5>
+        <h6>{{students.company?.name}}</h6>
+        <p>{{students.company?.location}}</p>
+        <p>Package : {{students.company?.package | package}}</p>
+        <h6>Offer Date :{{students.company?.offerDate}}</h6>
+      </li>
+      <li class="list-group-item">
+        <h5>Referal/Direct :</h5>
+        <p>{{students.sourceType}}</p>
+        <p>Source : {{students.sourceFrom}} {{students.referalName}}</p>
+      </li>
+    </ul>
+    <div class="card-body">
+        <button class="btn btn-warning" routerLink="/dashboard/edit-details/{{students.id}}">Edit</button>
+    </div>
+  </div>
+
+
