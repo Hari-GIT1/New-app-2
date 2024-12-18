@@ -97,31 +97,31 @@
                 </div>
             </div>
             <div>
-                <div formGroupName="companyDetails">
+                <div formGroupName="company">
                     <h3>Employement Details</h3>
 
                     <label for="">Company Name :</label>
                     <input type="text" formControlName="name"><br>
-                    <div *ngIf="studentForm.get('companyDetails')?.get('name')?.touched && studentForm.get('companyDetails')?.get('name')?.invalid">
-                        <p *ngIf="studentForm.get('companyDetails')?.get('name')?.errors?.['required']">Required Mandatory Fields</p>
+                    <div *ngIf="studentForm.get('company')?.get('name')?.touched && studentForm.get('company')?.get('name')?.invalid">
+                        <p *ngIf="studentForm.get('company')?.get('name')?.errors?.['required']">Required Mandatory Fields</p>
                     </div>
 
                     <label for="">Location :</label>
                     <input type="text" formControlName="location"><br>
-                    <div *ngIf="studentForm.get('companyDetails')?.get('location')?.touched && studentForm.get('companyDetails')?.get('location')?.invalid">
-                        <p *ngIf="studentForm.get('companyDetails')?.get('location')?.errors?.['required']">Required Mandatory Fields</p>
+                    <div *ngIf="studentForm.get('company')?.get('location')?.touched && studentForm.get('company')?.get('location')?.invalid">
+                        <p *ngIf="studentForm.get('company')?.get('location')?.errors?.['required']">Required Mandatory Fields</p>
                     </div>
 
                     <label for="">Package :</label>
                     <input type="number" formControlName="package"><br>
-                    <div *ngIf="studentForm.get('companyDetails')?.get('package')?.touched && studentForm.get('companyDetails')?.get('package')?.invalid">
-                        <p *ngIf="studentForm.get('companyDetails')?.get('package')?.errors?.['required']">Required Mandatory Fields</p>
+                    <div *ngIf="studentForm.get('company')?.get('package')?.touched && studentForm.get('company')?.get('package')?.invalid">
+                        <p *ngIf="studentForm.get('company')?.get('package')?.errors?.['required']">Required Mandatory Fields</p>
                     </div>
 
                     <label for="">Offer Date :</label>
                     <input type="date" formControlName="offerDate"><br>
-                    <div *ngIf="studentForm.get('companyDetails')?.get('offerDate')?.touched && studentForm.get('companyDetails')?.get('offerDate')?.invalid">
-                        <p *ngIf="studentForm.get('companyDetails')?.get('offerDate')?.errors?.['required']">Required Mandatory Fields</p>
+                    <div *ngIf="studentForm.get('company')?.get('offerDate')?.touched && studentForm.get('company')?.get('offerDate')?.invalid">
+                        <p *ngIf="studentForm.get('company')?.get('offerDate')?.errors?.['required']">Required Mandatory Fields</p>
                     </div>
                 </div>
                 <div>

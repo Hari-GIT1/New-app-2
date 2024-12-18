@@ -26,12 +26,12 @@ export class CreateStudentsComponent {
 
     }),
     education:new FormArray([]),
-    companyDetails:new FormGroup({
+    company:new FormGroup({
       name:new FormControl('',[Validators.required]),
       location:new FormControl('',[Validators.required]),
       package:new FormControl('',[Validators.required]),
       offerDate:new FormControl('',[Validators.required]),
-    }),
+    }), 
     sourceType:new FormControl('',[Validators.required]),
 
   })
@@ -71,6 +71,7 @@ export class CreateStudentsComponent {
   }
 
   submit(){
+    console.log(this.studentForm.value)
     this._studentsService.createStudent(this.studentForm.value).subscribe(
       (data:any)=>{
         alert("Student Details Added Succefully")
