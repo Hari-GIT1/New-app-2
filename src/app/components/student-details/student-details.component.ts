@@ -32,8 +32,12 @@ export class StudentDetailsComponent {
       }
     )
   }
-  sort(){}
+  sort(){
+    this._studentsServices.getSortedStudents(this.order,this.value).subscribe(
+      (data:any)=>{
+        this.students =data
+      }
+    )
   
-  
-
+}
 }
